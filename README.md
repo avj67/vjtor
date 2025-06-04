@@ -1,34 +1,43 @@
-[![progress-banner](https://backend.codecrafters.io/progress/bittorrent/64b99998-66fc-4335-958d-bf8116e3b7c1)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# VjTor Client in Python
 
-This is a starting point for Python solutions to the
-["Build Your Own BitTorrent" Challenge](https://app.codecrafters.io/courses/bittorrent/overview).
+This project is a BitTorrent client implemented in Python.
 
-In this challenge, you’ll build a BitTorrent client that's capable of parsing a
-.torrent file and downloading a file from a peer. Along the way, we’ll learn
-about how torrent files are structured, HTTP trackers, BitTorrent’s Peer
-Protocol, pipelining and more.
+It demonstrates core BitTorrent protocol features, including peer communication, torrent file parsing, and file downloading.
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+## Features
 
-# Passing the first stage
+- Parses `.torrent` files
+- Connects to trackers and peers
+- Downloads files using the BitTorrent protocol
+- Command-line interface
 
-The entry point for your BitTorrent implementation is in `app/main.py`. Study
-and uncomment the relevant code, and push your changes to pass the first stage:
+## Getting Started
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
+### Prerequisites
+
+- Python 3.7+
+- `requests` library (install with `pip install requests`)
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/codecrafters-bittorrent-python.git
+cd codecrafters-bittorrent-python
 ```
 
-Time to move on to the next stage!
+### Usage
 
-# Stage 2 & beyond
+```bash
+python main.py <path-to-torrent-file>
+```
 
-Note: This section is for stages 2 and beyond.
+## Project Structure
 
-1. Ensure you have `python (3.13)` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `app/main.py`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+- `main.py` - Entry point for the client
+- `torrent.py` - Torrent file parsing logic
+- `peer.py` - Peer communication logic
+
+## License
+
+This project is licensed under the MIT License.
+
