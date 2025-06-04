@@ -35,6 +35,8 @@ def decode_bencode(bencoded_value):
             result = {}
             while not data.startswith(b'e'):
                 key, data = decode(data)
+                if not isinstance(key, bytes):
+                    raise ValueError("Dictionary keys must be byte strings")
                 value, data = decode(data)
                 result[key.decode()] = value
             return result, data[1:]
