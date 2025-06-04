@@ -21,8 +21,8 @@ It demonstrates core BitTorrent protocol features, including peer communication,
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/codecrafters-bittorrent-python.git
-cd codecrafters-bittorrent-python
+git clone https://github.com/avj67/vjtor.git
+cd VjTor V1
 ```
 
 ### Usage
