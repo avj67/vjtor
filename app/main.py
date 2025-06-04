@@ -1,4 +1,4 @@
-import json
+import jsonf
 import bencodepy
 import requests
 import sys
@@ -29,6 +29,14 @@ def decode_bencode(bencoded_value):
             while not data.startswith(b'e'):
                 item, data = decode(data)
                 result.append(item)
+            return result, data[1:]
+        elif data.startswith(b'd'): #dictionary like b'd3:foo3:bare'
+            data = data[1:]
+            result = {}
+            while not data.startswith(b'e'):
+                key, data = decode(data)
+                value, data = decode(data)
+                result[key.decode()] = value
             return result, data[1:]
         else:
             raise ValueError("Unsupported or invalid bencoded value")
