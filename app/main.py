@@ -3,6 +3,7 @@ import hashlib
 import math
 import socket
 import sys
+import bencodepy as bencode
 from typing import Optional
 
 import requests
