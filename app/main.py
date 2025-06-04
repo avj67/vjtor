@@ -46,7 +46,17 @@ def decode_bencode(bencoded_value):
     deecoded_value, _ = decode(bencoded_value)
     return deecoded_value
         
-    
+def extract_torrent_info(filename):
+    with open(filename, 'rb') as f:
+        content = f.read()
+    decoded_content = decode_bencode(content)
+    # Ensure that both 'announce' and 'info' exist in the decoded dictionary
+    if 'announce' not in decoded_content or 'info' not in decoded_content:
+        raise ValueError("Invalid torrent file: missing 'announce' or 'info' key")
+    #Extract the required values
+    tracker_url = decoded_content['announce'].decode('utf-8')
+    file_length = decoded_content['info']['length']
+    return tracker_url, file_length
 
 def main():
     command = sys.argv[1]
@@ -68,6 +78,12 @@ def main():
 
         
         print(json.dumps(decode_bencode(bencoded_value), default=bytes_to_str))
+    elif command == "info":
+        torrent_file = sys.argv[2]
+        tracker_url, file_length = extract_torrent_info(torrent_file)
+
+        print(f"Tracker URL: {tracker_url}")
+        print(f"File length: {file_length} bytes")
     else:
         raise NotImplementedError(f"Unknown command {command}")
 
