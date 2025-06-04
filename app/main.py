@@ -1,5 +1,4 @@
 import json
-import sy
 import bencodepy
 import requests
 import sys
