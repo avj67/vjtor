@@ -22,7 +22,7 @@ It demonstrates core BitTorrent protocol features, including peer communication,
 
 ```bash
 git clone https://github.com/avj67/vjtor.git
-cd VjTor V1
+cd app
 ```
 
 ### Usage
